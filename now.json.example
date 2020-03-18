@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "covid2019",
+  "scope": "***team-name*** [if not using hobby account]",
+  "builds": [{
+    "src": "nuxt.config.js",
+    "use": "@nuxtjs/now-builder",
+    "config": {}
+  }]
+}

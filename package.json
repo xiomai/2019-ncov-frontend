@@ -1,0 +1,27 @@
+{
+  "name": "the2019covid",
+  "version": "1.0.0",
+  "description": "the2019covid.com form nuxt app",
+  "author": "Alison Galeon",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "now:cleanup": "npx del-cli .now/",
+    "deploy:production": "yarn now:cleanup && now --confirm --prod"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/vuetify": "^1.0.0",
+    "countup.js": "^2.0.4",
+    "leaflet": "^1.6.0",
+    "nuxt": "^2.0.0",
+    "vue-countup-v2": "^4.0.0",
+    "vue2-filters": "^0.10.0",
+    "vue2-leaflet": "^2.5.2"
+  }
+}
