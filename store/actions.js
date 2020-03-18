@@ -14,6 +14,7 @@ export default {
   },
   setSelectedLocationAndShowDialog({ commit }, payload) {
     commit("SET_SELECTED_LOCATION", payload);
+    commit("APPEND_FILTERED_LOCATION_NAMES", payload);
     commit("SHOW_DETAILS_DIALOG");
   }
 };

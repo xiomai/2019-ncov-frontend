@@ -14,5 +14,6 @@ export default () => ({
   showDetailsDialog: false,
   showSearchDialog: false,
   showRepoDialog: false,
-  selectedLocation: {}
+  selectedLocation: {},
+  filteredLocationNames: []
 });

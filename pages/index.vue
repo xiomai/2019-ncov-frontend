@@ -11,18 +11,22 @@
           <LeafletMap />
         </v-card>
       </v-col>
+      <Filtered />
     </v-row>
   </v-container>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import TotalCases from "@/components/TotalCases";
 import LeafletMap from "@/components/Map";
+import Filtered from "@/components/Filtered";
 
 export default {
   components: {
     TotalCases,
-    LeafletMap
+    LeafletMap,
+    Filtered
   }
 };
 </script>

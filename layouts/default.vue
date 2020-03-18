@@ -44,9 +44,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.ps {
-  height: 70vh;
-}
-</style>

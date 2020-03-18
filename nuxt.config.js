@@ -32,6 +32,7 @@ export default {
   plugins: [
     "~/plugins/countup.client.js",
     "~/plugins/leaflet.client.js",
+    "~/plugins/perfectScrollbar.client.js",
     "~/plugins/vue2-filters.js"
   ],
   /*

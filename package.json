@@ -22,6 +22,7 @@
     "nuxt": "^2.0.0",
     "vue-countup-v2": "^4.0.0",
     "vue2-filters": "^0.10.0",
-    "vue2-leaflet": "^2.5.2"
+    "vue2-leaflet": "^2.5.2",
+    "vue2-perfect-scrollbar": "^1.4.0"
   }
 }

@@ -33,5 +33,24 @@ export default {
       death: +payload.dates[payload.dates.length - 1].death,
       recovered: +payload.dates[payload.dates.length - 1].recovered
     };
+  },
+  APPEND_FILTERED_LOCATION_NAMES(state, payload) {
+    if (!!payload["Province/State"]) {
+      state.filteredLocationNames = [payload["Country/Region"]];
+      return;
+    }
+
+    state.filteredLocationNames = [
+      ...state.filteredLocationNames,
+      payload["Country/Region"]
+    ];
+  },
+  CLEAR_FILTERED_LOCATION_NAMES(state) {
+    state.filteredLocationNames = [];
+  },
+  REMOVE_FILTERED_LOCATION_NAME(state, payload) {
+    state.filteredLocationNames = state.filteredLocationNames.filter(
+      lname => lname !== payload["Country/Region"]
+    );
   }
 };
