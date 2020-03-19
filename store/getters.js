@@ -42,5 +42,14 @@ export default {
 
     return filteredCasesData;
   },
-  locationCasesData: (_, getters) => getters.locationCases.data
+  locationCasesData: (_, getters) => getters.locationCases.data,
+  mapLocations: state => {
+    const { cases, defaultLocationNames } = state;
+
+    if (!defaultLocationNames.length) return cases.data;
+
+    return cases.data.filter(caseData =>
+      defaultLocationNames.includes(caseData["Country/Region"])
+    );
+  }
 };

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Map",
@@ -36,9 +36,10 @@ export default {
     bounds: null
   }),
   computed: {
-    ...mapState(["isDarkTheme", "cases"]),
+    ...mapState(["isDarkTheme"]),
+    ...mapGetters(["mapLocations"]),
     locations() {
-      const withConfirmedData = this.cases.data.filter(
+      const withConfirmedData = this.mapLocations.filter(
         i => i.dates[i.dates.length - 1].confirmed
       );
       return withConfirmedData.map(item => ({

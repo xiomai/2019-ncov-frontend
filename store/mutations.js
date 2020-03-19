@@ -47,10 +47,17 @@ export default {
   },
   CLEAR_FILTERED_LOCATION_NAMES(state) {
     state.filteredLocationNames = [];
+    state.defaultLocationNames = [];
   },
   REMOVE_FILTERED_LOCATION_NAME(state, payload) {
     state.filteredLocationNames = state.filteredLocationNames.filter(
       lname => lname !== payload["Country/Region"]
     );
+  },
+  SET_FILTERED_LOCATION_NAMES(state, payload) {
+    state.filteredLocationNames = payload;
+  },
+  SET_DEFAULT_FILTERED_LOCATION_NAMES(state, payload) {
+    state.defaultLocationNames = payload;
   }
 };

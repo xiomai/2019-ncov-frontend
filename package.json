@@ -10,6 +10,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "now:cleanup": "npx del-cli .now/",
+    "deploy:withfilter": "yarn now:cleanup && now -A filtered.now.json --confirm --prod",
     "deploy:production": "yarn now:cleanup && now --confirm --prod"
   },
   "dependencies": {

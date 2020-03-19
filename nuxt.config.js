@@ -1,4 +1,5 @@
 import colors from "vuetify/es5/util/colors";
+require("dotenv").config();
 
 export default {
   mode: "universal",
@@ -80,5 +81,10 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  env: {
+    defaultLocationNames: !!process.env.DEFAULT_FILTER_LOCATION_NAMES
+      ? process.env.DEFAULT_FILTER_LOCATION_NAMES.split(",")
+      : []
   }
 };

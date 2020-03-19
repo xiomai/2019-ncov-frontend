@@ -1,8 +1,13 @@
 import API from "@/config/API";
 
 export default {
-  async nuxtServerInit({ commit }) {
+  async nuxtServerInit({ commit }, { env }) {
+    const { defaultLocationNames } = env;
     try {
+      if (defaultLocationNames.length) {
+        commit("SET_DEFAULT_FILTERED_LOCATION_NAMES", defaultLocationNames);
+        commit("SET_FILTERED_LOCATION_NAMES", defaultLocationNames);
+      }
       const cases = await API.getCases();
       commit("SET_CASES", cases);
 

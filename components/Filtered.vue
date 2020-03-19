@@ -22,7 +22,7 @@
             <ICountUp :endVal="locationCases.total_death" />
           </p>
           <div class="row align-center justify-center">
-            <v-btn v-on="on" @click="CLEAR_FILTERED_LOCATION_NAMES">
+            <v-btn @click="CLEAR_FILTERED_LOCATION_NAMES">
               <span class="v-btn__content"><span>Clear Filter</span></span>
             </v-btn>
           </div>
