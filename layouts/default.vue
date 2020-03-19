@@ -44,3 +44,12 @@ export default {
   }
 };
 </script>
+
+
+<style>
+.ps {
+  height: 70vh;
+  overflow: visible;
+  overflow-y: auto;
+}
+</style>

@@ -29,13 +29,24 @@
               target="_BLANK"
               >worldometers.info</a
             >
+            -
+            <a
+              class="no-decoration"
+              href="https://the2019ncov.com/"
+              target="_BLANK"
+              >the2019ncov.com</a
+            >
           </v-col>
           <v-col
             cols="12"
             md="6"
-            :class="[$vuetify.breakpoint.mdAndUp ? 'text-right' : 'text-center']"
+            :class="[
+              $vuetify.breakpoint.mdAndUp ? 'text-right' : 'text-center'
+            ]"
           >
-            <a @click.prevent="share" class="white--text no-decoration">Share</a>
+            <a @click.prevent="share" class="white--text no-decoration"
+              >Share</a
+            >
           </v-col>
         </v-row>
       </v-card-text>
@@ -50,11 +61,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(['isDarkTheme'])
+    ...mapState(["isDarkTheme"])
   },
   data: () => ({
     snackbar: {
@@ -67,17 +78,17 @@ export default {
       if (navigator.share) {
         try {
           await navigator.share({
-            title: 'the2019ncov.com',
-            text: 'Map, data and timeline of coronavirus (COVID-19)',
-            url: 'https://the2019ncov.com'
+            title: "https://thecovid19.now.sh",
+            text: "Map, data and timeline of coronavirus (COVID-19)",
+            url: "https://thecovid19.now.sh"
           });
-          this.snackbar.text = 'Shared successfully.';
+          this.snackbar.text = "Shared successfully.";
           this.snackbar.show = true;
         } catch (e) {
           // share cancelled
         }
       } else {
-        this.snackbar.text = 'Unsupported.';
+        this.snackbar.text = "Unsupported.";
         this.snackbar.show = true;
       }
     }

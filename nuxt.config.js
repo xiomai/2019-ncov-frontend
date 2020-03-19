@@ -1,4 +1,6 @@
 import colors from "vuetify/es5/util/colors";
+import serverRoutes from "./server";
+
 require("dotenv").config();
 
 export default {
@@ -19,6 +21,7 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  serverMiddleware: [...serverRoutes],
   /*
    ** Customize the progress-bar color
    */
@@ -33,7 +36,6 @@ export default {
   plugins: [
     "~/plugins/countup.client.js",
     "~/plugins/leaflet.client.js",
-    "~/plugins/perfectScrollbar.client.js",
     "~/plugins/vue2-filters.js"
   ],
   /*
@@ -83,6 +85,10 @@ export default {
     extend(config, ctx) {}
   },
   env: {
+    baseURL:
+      process.env.NODE_ENV === "production"
+        ? process.env.PRODUCTION_BASE_URL || "https://thecovid19.now.sh"
+        : process.env.BASE_URL || "http://localhost:3000",
     defaultLocationNames: !!process.env.DEFAULT_FILTER_LOCATION_NAMES
       ? process.env.DEFAULT_FILTER_LOCATION_NAMES.split(",")
       : []

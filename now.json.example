@@ -5,6 +5,18 @@
   "builds": [{
     "src": "nuxt.config.js",
     "use": "@nuxtjs/now-builder",
-    "config": {}
-  }]
+    "config": {
+      "serverFiles": ["./server/**/*"]
+    }
+  }],
+  "build": {
+    "env": {
+      "PRODUCTION_BASE_URL": "https://api.the2019ncov.com",
+      // "DEFAULT_FILTER_LOCATION_NAMES": "Brunei,Philippines,Malaysia,Indonesia,Singapore,Japan,Thailand,Cambodia,Vietnam,Australia"
+    }
+  },
+  "env": {
+    "PRODUCTION_BASE_URL": "https://api.the2019ncov.com",
+    // "DEFAULT_FILTER_LOCATION_NAMES": "Brunei,Philippines,Malaysia,Indonesia,Singapore,Japan,Thailand,Cambodia,Vietnam,Australia"
+  }
 }

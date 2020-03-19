@@ -11,8 +11,21 @@
           <LeafletMap />
         </v-card>
       </v-col>
-      <Filtered />
+      <client-only>
+        <Filtered />
+      </client-only>
     </v-row>
+
+    <client-only>
+      <v-row>
+        <v-col cols="12" md="6">
+          <DailyReport />
+        </v-col>
+        <v-col cols="12" md="6">
+          <RecoveredChart />
+        </v-col>
+      </v-row>
+    </client-only>
   </v-container>
 </template>
 
@@ -21,12 +34,16 @@ import { mapGetters } from "vuex";
 import TotalCases from "@/components/TotalCases";
 import LeafletMap from "@/components/Map";
 import Filtered from "@/components/Filtered";
+import DailyReport from "@/components/DailyReport";
+import RecoveredChart from "@/components/RecoveredChart";
 
 export default {
   components: {
     TotalCases,
     LeafletMap,
-    Filtered
+    Filtered,
+    DailyReport,
+    RecoveredChart
   }
 };
 </script>
