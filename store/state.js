@@ -6,6 +6,7 @@ export default () => ({
     total_death: 0,
     data: []
   },
+  casesFetching: true,
   fatalityRate: {
     byAge: [],
     bySex: [],
@@ -16,5 +17,6 @@ export default () => ({
   showRepoDialog: false,
   selectedLocation: {},
   filteredLocationNames: [],
+  filteredLocationIndexes: [],
   defaultLocationNames: []
 });

@@ -48,7 +48,7 @@ export default {
 
 <style>
 .ps {
-  height: 70vh;
+  height: 37vh;
   overflow: visible;
   overflow-y: auto;
 }

@@ -29,24 +29,14 @@
         </div>
         <perfect-scrollbar v-if="!$vuetify.breakpoint.smAndDown">
           <v-list three-line>
-            <v-list-item
-              v-for="(locationCase, i) in _locationCasesData"
-              :key="i"
-            >
+            <v-list-item v-for="(locationCase, i) in _locationCasesData" :key="i">
               <v-list-item-content>
                 <v-list-item-title>
-                  <v-btn
-                    icon
-                    x-small
-                    @click="REMOVE_FILTERED_LOCATION_NAME(locationCase)"
-                  >
+                  <v-btn icon x-small @click="REMOVE_FILTERED_LOCATION_NAME(locationCase)">
                     <v-icon>mdi-close</v-icon>
                   </v-btn>
                   <span class="font-weight-bold">
-                    <ICountUp
-                      class="red--text text--darken-2"
-                      :endVal="locationCase.confirmed"
-                    />
+                    <ICountUp class="red--text text--darken-2" :endVal="locationCase.confirmed" />
                   </span>
                   {{ locationCase["Country/Region"] }}
                   {{ locationCase["Province/State"] }}
@@ -67,18 +57,11 @@
           <v-list-item v-for="(locationCase, i) in _locationCasesData" :key="i">
             <v-list-item-content>
               <v-list-item-title>
-                <v-btn
-                  icon
-                  x-small
-                  @click="REMOVE_FILTERED_LOCATION_NAME(locationCase)"
-                >
+                <v-btn icon x-small @click="REMOVE_FILTERED_LOCATION_NAME(locationCase)">
                   <v-icon>mdi-close</v-icon>
                 </v-btn>
                 <span class="font-weight-bold">
-                  <ICountUp
-                    class="red--text text--darken-2"
-                    :endVal="locationCase.confirmed"
-                  />
+                  <ICountUp class="red--text text--darken-2" :endVal="locationCase.confirmed" />
                 </span>
                 {{ locationCase["Country/Region"] }}
                 {{ locationCase["Province/State"] }}
@@ -100,8 +83,7 @@
           block
           @click="loadMore"
           :disabled="limit >= locationCasesData.length"
-          >Load More</v-btn
-        >
+        >Load More</v-btn>
       </v-card-text>
     </v-card>
   </v-col>
@@ -124,7 +106,6 @@ export default {
   computed: {
     ...mapGetters([
       "isLocationCasesFiltered",
-      "filteredLocationNames",
       "locationCases",
       "locationCasesData"
     ]),

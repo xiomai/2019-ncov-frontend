@@ -5,6 +5,12 @@ export default {
   SET_CASES(state, payload) {
     state.cases = payload;
   },
+  SET_CASES_FETCHING(state) {
+    state.casesFetching = true;
+  },
+  UNSET_CASES_FETCHING(state) {
+    state.casesFetching = false;
+  },
   SET_FATALITY_RATE(state, payload) {
     state.fatalityRate = payload;
   },
@@ -35,23 +41,38 @@ export default {
     };
   },
   APPEND_FILTERED_LOCATION_NAMES(state, payload) {
-    if (!!payload["Province/State"]) {
-      state.filteredLocationNames = [payload["Country/Region"]];
-      return;
-    }
+    const indexOfCase = state.cases.data.findIndex(
+      caseData => caseData.Lat === payload.Lat && caseData.Long === payload.Long
+    );
 
-    state.filteredLocationNames = [
-      ...state.filteredLocationNames,
-      payload["Country/Region"]
-    ];
+    // state.filteredLocationNames = [
+    //   ...state.filteredLocationNames,
+    //   payload["Country/Region"]
+    // ];
+
+    if (!state.filteredLocationIndexes.includes(indexOfCase)) {
+      state.filteredLocationIndexes = [
+        ...state.filteredLocationIndexes,
+        indexOfCase
+      ];
+    }
   },
   CLEAR_FILTERED_LOCATION_NAMES(state) {
     state.filteredLocationNames = [];
     state.defaultLocationNames = [];
+    state.filteredLocationIndexes = [];
   },
   REMOVE_FILTERED_LOCATION_NAME(state, payload) {
     state.filteredLocationNames = state.filteredLocationNames.filter(
       lname => lname !== payload["Country/Region"]
+    );
+
+    const indexOfCase = state.cases.data.findIndex(
+      caseData => caseData.Lat === payload.Lat && caseData.Long === payload.Long
+    );
+
+    state.filteredLocationIndexes = state.filteredLocationIndexes.filter(
+      caseIndex => caseIndex !== indexOfCase
     );
   },
   SET_FILTERED_LOCATION_NAMES(state, payload) {

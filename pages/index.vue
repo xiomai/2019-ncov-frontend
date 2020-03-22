@@ -2,7 +2,8 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <TotalCases />
+        <TotalCasesLoading v-if="casesFetching" />
+        <TotalCases v-else />
       </v-col>
     </v-row>
     <v-row>
@@ -30,8 +31,9 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 import TotalCases from "@/components/TotalCases";
+import TotalCasesLoading from "@/components/TotalCasesLoading";
 import LeafletMap from "@/components/Map";
 import Filtered from "@/components/Filtered";
 import DailyReport from "@/components/DailyReport";
@@ -40,10 +42,14 @@ import RecoveredChart from "@/components/RecoveredChart";
 export default {
   components: {
     TotalCases,
+    TotalCasesLoading,
     LeafletMap,
     Filtered,
     DailyReport,
     RecoveredChart
+  },
+  computed: {
+    ...mapState(["casesFetching"])
   }
 };
 </script>

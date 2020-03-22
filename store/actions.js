@@ -21,11 +21,37 @@ export default {
       // commit("SET_FATALITY_RATE", fatalityRate.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      commit("UNSET_CASES_FETCHING");
     }
   },
   setSelectedLocationAndShowDialog({ commit }, payload) {
     commit("SET_SELECTED_LOCATION", payload);
     commit("APPEND_FILTERED_LOCATION_NAMES", payload);
-    // commit("SHOW_DETAILS_DIALOG");
+    commit("SHOW_DETAILS_DIALOG");
+  },
+  async fetchCases({ commit }) {
+    commit("SET_CASES_FETCHING");
+    const { defaultLocationNames, baseURL } = this.app.context.env;
+
+    const http = axios.create({
+      baseURL
+    });
+
+    try {
+      if (defaultLocationNames.length) {
+        commit("SET_DEFAULT_FILTERED_LOCATION_NAMES", defaultLocationNames);
+        commit("SET_FILTERED_LOCATION_NAMES", defaultLocationNames);
+      }
+
+      const cases = await http.get("/api/cases");
+      commit("SET_CASES", cases.data);
+      // const fatalityRate = await http.get("/api/fatality-rate");
+      // commit("SET_FATALITY_RATE", fatalityRate.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      commit("UNSET_CASES_FETCHING");
+    }
   }
 };

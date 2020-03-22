@@ -1,15 +1,13 @@
 export default {
-  isLocationCasesFiltered: state => !!state.filteredLocationNames.length,
+  isLocationCasesFiltered: state => !!state.filteredLocationIndexes.length,
   filteredLocationNames: state => state.filteredLocationNames,
   locationCases: state => {
-    const { filteredLocationNames, cases } = state;
+    const { filteredLocationIndexes, cases } = state;
 
-    if (!filteredLocationNames.length) return cases;
+    if (!filteredLocationIndexes.length) return cases;
 
     const filteredCasesData = cases.data
-      .filter(caseData =>
-        filteredLocationNames.includes(caseData["Country/Region"])
-      )
+      .filter((caseData, index) => filteredLocationIndexes.includes(index))
       .reduce(
         (prev, data) => {
           const current_confirmed = +data.dates[data.dates.length - 1]
