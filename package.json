@@ -24,7 +24,7 @@
     "compression": "^1.7.4",
     "countup.js": "^2.0.4",
     "csvtojson": "^2.0.10",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "leaflet": "^1.6.0",
     "morgan": "^1.9.1",
     "nuxt": "^2.0.0",
